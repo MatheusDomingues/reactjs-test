@@ -1,8 +1,8 @@
 export default function reducer (state, action) {
-  const addTodo = (todo) => {
-    const ids = []
-    const maxOfItems = 10000
+  const ids = []
+  const maxOfItems = 10000
 
+  const addTodo = (todo) => {
     const uniqueId = () => {
       if (ids.length !== maxOfItems) {
         let randomNumber = Math.ceil(Math.random() * maxOfItems)

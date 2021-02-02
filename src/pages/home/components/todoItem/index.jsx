@@ -31,7 +31,7 @@ export default function Todo ({ id, description, done }) {
     : <p style={{ color: 'red', margin: 0, marginLeft: 5 }}>Não</p>
 
   return (
-    <div id={id} className='item'>
+    <div id={id} className='item' style={{ margin: 10 }}>
       <div>
         <div>{id} - {description}</div>
         <div style={{ display: 'flex' }}>Feito? {alreadyDone}</div>
