@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#ffffff'
   },
   odd: {
-    backgroundColor: '#aaaaaa'
+    backgroundColor: '#dddddd'
   }
 }))
 

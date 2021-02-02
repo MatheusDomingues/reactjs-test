@@ -1,6 +1,20 @@
 export default function reducer (state, action) {
   const addTodo = (todo) => {
-    const todoItem = { id: state.length + 1, description: todo, done: false }
+    const ids = []
+    const maxOfItems = 10000
+
+    const uniqueId = () => {
+      if (ids.length !== maxOfItems) {
+        let randomNumber = Math.ceil(Math.random() * maxOfItems)
+        while (ids.indexOf(randomNumber) >= 0) {
+          randomNumber = Math.ceil(Math.random() * maxOfItems)
+        }
+        ids.push(randomNumber)
+        return randomNumber
+      }
+    }
+
+    const todoItem = { id: uniqueId(), description: todo, done: false }
     return [...state, todoItem]
   }
 
