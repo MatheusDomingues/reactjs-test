@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { TodoContext } from '../../../../contexts/todo.context'
+import { Button } from '@material-ui/core'
 
 export default function TodoHeader () {
   const todoContext = useContext(TodoContext)
@@ -22,13 +23,16 @@ export default function TodoHeader () {
           }}
           placeholder="digite para filtrar"
         ></input>
-        <button
-          type="button"
+        <Button
+          color='primary'
+          size='small'
+          variant='contained'
+          style={{ fontSize: '10px', borderRadius: '20px', marginLeft: '5px' }}
           onClick={(e) => {
             handleAddTodo(e)
             setTodo('')
           }}
-        >Adicionar</button>
+        >Adicionar</Button>
       </div>
     </div>
   )
