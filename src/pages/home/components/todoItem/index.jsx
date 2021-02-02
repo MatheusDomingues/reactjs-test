@@ -26,11 +26,15 @@ export default function Todo ({ id, description, done }) {
     }
   }
 
+  const alreadyDone = done
+    ? <p style={{ color: 'green', margin: 0, marginLeft: 5 }}>Sim</p>
+    : <p style={{ color: 'red', margin: 0, marginLeft: 5 }}>Não</p>
+
   return (
     <div id={id} className='item'>
       <div>
         <div>{id} - {description}</div>
-        <div >Feito? {done === true ? 'Sim' : 'Não'}</div>
+        <div style={{ display: 'flex' }}>Feito? {alreadyDone}</div>
       </div>
       <div>
         <button type="button" >Ok</button>
