@@ -8,7 +8,11 @@ export default function TodoHeader () {
 
   const handleAddTodo = (e) => {
     e.preventDefault()
-    todoContext.dispatch({ type: 'add', payload: todo })
+    if (todo === '') {
+      alert('You must fill in the Name field')
+    } else {
+      todoContext.dispatch({ type: 'add', payload: todo })
+    }
   }
 
   return (

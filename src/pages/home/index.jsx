@@ -15,7 +15,7 @@ export default function TodoIndex () {
   return (
     <div className={classes.root}>
       <TodoHeader></TodoHeader>
-      <hr></hr>
+      <hr/>
       <TodoList></TodoList>
     </div>
   )

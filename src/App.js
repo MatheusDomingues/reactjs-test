@@ -2,12 +2,12 @@ import React from 'react'
 import Home from './pages/home'
 import TodoProvider from './contexts/todo.context'
 
-function App () {
+function App() {
   return (
     <TodoProvider>
-      <section>
+      <div>
         <Home></Home>
-      </section>
+      </div>
     </TodoProvider>
   )
 }
