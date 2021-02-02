@@ -3,7 +3,7 @@ import { TodoContext } from '../../../../contexts/todo.context'
 
 export default function TodoHeader () {
   const todoContext = useContext(TodoContext)
-  const [todo, setTodo] = useState(() => '')
+  const [todo, setTodo] = useState('')
 
   const handleAddTodo = (e) => {
     e.preventDefault()
@@ -14,8 +14,21 @@ export default function TodoHeader () {
     <div>
       <p>Lista de Atividades</p>
       <div >
-        <input type="text" onChange={(e) => { setTodo(e.target.value) }} placeholder="digite para filtrar"></input>
-        <button type="button" onClick={(e) => handleAddTodo(e)}>Adicionar</button>
+        <input
+          type="text"
+          value={todo}
+          onChange={(e) => {
+            setTodo(e.target.value)
+          }}
+          placeholder="digite para filtrar"
+        ></input>
+        <button
+          type="button"
+          onClick={(e) => {
+            handleAddTodo(e)
+            setTodo('')
+          }}
+        >Adicionar</button>
       </div>
     </div>
   )
