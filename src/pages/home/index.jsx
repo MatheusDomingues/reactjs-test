@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-export default function TodoIndex() {
+export default function TodoIndex () {
   const classes = useStyles()
 
   return (

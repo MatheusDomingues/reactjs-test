@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { TodoContext } from '../../../../contexts/todo.context'
 import Todo from '../todoItem'
 
-export default function TodoList() {
+export default function TodoList () {
   const todoContext = useContext(TodoContext)
   return (<div>
     {todoContext.todos.map((todo) => (

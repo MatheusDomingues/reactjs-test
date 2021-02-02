@@ -1,4 +1,4 @@
-export default function Data() {
+export default function Data () {
   const getItem = (name) => {
     return localStorage.getItem(name)
   }

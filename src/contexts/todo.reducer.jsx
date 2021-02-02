@@ -1,4 +1,4 @@
-export default function reducer(state, action) {
+export default function reducer (state, action) {
   const addTodo = (todo) => {
     const todoItem = { id: state.length + 1, description: todo, done: false }
     return [...state, todoItem]

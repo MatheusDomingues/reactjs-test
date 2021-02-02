@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { TodoContext } from '../../../../contexts/todo.context'
 
-export default function TodoHeader() {
+export default function TodoHeader () {
   const todoContext = useContext(TodoContext)
   const [todo, setTodo] = useState(() => '')
 

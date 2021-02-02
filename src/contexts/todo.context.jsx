@@ -4,7 +4,7 @@ import TodoReducer from '../contexts/todo.reducer'
 
 export const TodoContext = createContext()
 
-export default function TodoProvider(props) {
+export default function TodoProvider (props) {
   const data = useMemo(() => repository(), [])
 
   const list = useCallback(() => {
