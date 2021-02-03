@@ -15,7 +15,8 @@ export default function reducer (state, action) {
     }
 
     const todoItem = { id: uniqueId(), description: todo, done: false }
-    return [todoItem, ...state]
+
+    return [...state, todoItem]
   }
 
   const updateTodo = (todo) => {

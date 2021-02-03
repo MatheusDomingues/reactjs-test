@@ -56,7 +56,7 @@ export default function Todo ({ id, description, done }) {
           color='primary'
           size='small'
           variant='contained'
-          style={done ? { fontSize: 10, opacity: 0, cursor: 'default' } : { fontSize: 10 }}
+          style={done ? { fontSize: 10, opacity: 0 } : { fontSize: 10 }}
           startIcon={<Check style={{ fontSize: 15 }} />}
           onClick={(e) => handleUpdateTodo(e)}
         >Done</Button>

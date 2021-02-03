@@ -14,6 +14,9 @@ export default function TodoProvider (props) {
   }, [data])
 
   const [todos, dispatch] = useReducer(TodoReducer, list())
+
+  repository().setItemStringify('todos', todos)
+
   return (
     <TodoContext.Provider value={{ todos, dispatch }}>
       {props.children}
