@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Button } from '@material-ui/core'
 import { Delete, Check } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/core/styles'
+import { TodoContext } from '../../../../contexts/todo.context'
 
 const useStyles = makeStyles(() => ({
   enve: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 export default function Todo ({ id, description, done }) {
+  const todoContext = useContext(TodoContext)
   const classes = useStyles()
 
   useEffect(() => {
@@ -33,8 +35,18 @@ export default function Todo ({ id, description, done }) {
     ? <p style={{ color: 'green', margin: 0, marginLeft: 5 }}>Sim</p>
     : <p style={{ color: 'red', margin: 0, marginLeft: 5 }}>Não</p>
 
+  const handleUpdateTodo = (e) => {
+    e.preventDefault()
+    todoContext.dispatch({ type: 'update', payload: { id, description, done: true } })
+  }
+
+  const handleDeleteTodo = (e) => {
+    e.preventDefault()
+    todoContext.dispatch({ type: 'remove', payload: { id } })
+  }
+
   return (
-    <article id={id} className='item' style={{ margin: 10, cursor: 'pointer', padding: 10 }}>
+    <article id={id} className='item' style={{ marginTop: 10, cursor: 'pointer', padding: 10 }}>
       <div>
         <div style={{ fontWeight: 'bold' }}>{id} - {description}</div>
         <div style={{ display: 'flex', marginTop: 10, marginBottom: 10 }}>Feito? {alreadyDone}</div>
@@ -44,8 +56,9 @@ export default function Todo ({ id, description, done }) {
           color='primary'
           size='small'
           variant='contained'
-          style={{ fontSize: 10 }}
+          style={done ? { fontSize: 10, opacity: 0, cursor: 'default' } : { fontSize: 10 }}
           startIcon={<Check style={{ fontSize: 15 }} />}
+          onClick={(e) => handleUpdateTodo(e)}
         >Done</Button>
         <Button
           color='secondary'
@@ -53,6 +66,7 @@ export default function Todo ({ id, description, done }) {
           variant='contained'
           startIcon={<Delete style={{ fontSize: 15 }} />}
           style={{ fontSize: 10, marginLeft: 5 }}
+          onClick={(e) => handleDeleteTodo(e)}
         >Delete</Button>
       </div>
     </article>

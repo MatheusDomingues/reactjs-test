@@ -15,15 +15,28 @@ export default function reducer (state, action) {
     }
 
     const todoItem = { id: uniqueId(), description: todo, done: false }
-    return [...state, todoItem]
+    return [todoItem, ...state]
   }
 
   const updateTodo = (todo) => {
-    return state
+    const filledTodo = [...state]
+
+    const findTodo = filledTodo.concat(
+      state.filter(({ id }) => !filledTodo.find(item => item.id === id))
+    )
+
+    return findTodo
   }
 
   const deleteTodo = (todo) => {
-    return state
+    const filledTodos = []
+    state.forEach(item => {
+      if (item.id !== todo.id) {
+        filledTodos.push(item)
+      }
+    })
+
+    return filledTodos
   }
 
   switch (action.type) {
