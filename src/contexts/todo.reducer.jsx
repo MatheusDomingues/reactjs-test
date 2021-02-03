@@ -19,13 +19,14 @@ export default function reducer (state, action) {
   }
 
   const updateTodo = (todo) => {
-    const filledTodo = [...state]
+    const filledTodo = state.map(item => {
+      if (item.id === todo.id) {
+        return todo
+      }
+      return item
+    })
 
-    const findTodo = filledTodo.concat(
-      state.filter(({ id }) => !filledTodo.find(item => item.id === id))
-    )
-
-    return findTodo
+    return filledTodo
   }
 
   const deleteTodo = (todo) => {
